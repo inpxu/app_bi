@@ -1,0 +1,36 @@
+{
+  "errorCode": 0,
+  "message": "查询成功",
+  "model": [{
+    "alias": "布局文件1",
+    "deleted": "F",
+    "id": 21,
+    "layouts": [{
+      "alias": "111222",
+      "companyId": 232601,
+      "createBy": "运营管理员",
+      "createTime": "2019-01-05 13:02:13",
+      "deleted": "F",
+      "folderId": 21,
+      "id": 31,
+      "modifyBy": "运营管理员",
+      "modifyTime": "2019-01-05 14:14:53"
+    }, {
+      "alias": "222333",
+      "companyId": 232601,
+      "createBy": "运营管理员",
+      "createTime": "2019-01-05 16:10:36",
+      "deleted": "F",
+      "folderId": 21,
+      "id": 37,
+      "modifyBy": "p13500000000",
+      "modifyTime": "2019-01-07 08:26:34"
+    }]
+  }, {
+    "alias": "布局文件2",
+    "deleted": "F",
+    "id": 23,
+    "layouts": []
+  }],
+  "result": true
+}

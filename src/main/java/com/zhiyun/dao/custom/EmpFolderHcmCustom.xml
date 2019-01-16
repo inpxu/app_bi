@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhiyun.dao.impl.EmpFolderHcmDaoImpl">
+
+    <select id="getEmp" parameterType="com.zhiyun.entity.EmpFolderHcm" resultType="com.zhiyun.dto.EmpFolderHcmDto">
+        SELECT
+        efh.ID id,
+        efh.EMP_NO empNo,
+        ote.NAME empName,
+        ote.ID userId,
+        co.ORG_NAME orgName
+        FROM HCM.EMP_FOLDER_HCM efh
+        LEFT JOIN auth_authorization.cas_user ote ON ote.emp_no = efh.emp_no AND ote.deleted = efh.deleted AND ote.company_id = efh.company_id
+        LEFT JOIN auth_authorization.CAS_ORG co ON co.id = ote.org_id AND co.deleted = ote.deleted AND co.company_id = ote.company_id
+        WHERE  efh.DELETED = 'F'
+        and efh.company_id = #{companyId,jdbcType=BIGINT}
+        <if test="empName != null and empName != ''">
+            AND ote.NAME like concat ('%',#{empName,jdbcType=BIGINT},'%')
+        </if>
+        and co.ORG_NAME is not null
+	    and ote.ID is not null
+    </select>
+
+</mapper>   

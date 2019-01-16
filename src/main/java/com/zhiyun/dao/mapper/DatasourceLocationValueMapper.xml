@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhiyun.dao.impl.DatasourceLocationValueDaoImpl">
+
+	<!-- 插入实体 -->
+	<insert id="insert" parameterType="com.zhiyun.entity.DatasourceLocationValue">
+		INSERT INTO BI_DATASOURCE_LOCATION_VALUE (
+		   	ID,
+		   	BOARD_ID,
+		   	REPORT_ID,
+		   	TYPE,
+		   	VALUE,
+		   	WARE_HOUSE_ID,
+		   	MODEL_ID,
+		   	DATA_MODEL_CODE,
+		   	VERSION,
+		   	FIGURE,
+		   	VEIDOO,
+		   	FIND_DATE,
+		   	FIND_COND_LIST,
+		   	FIND_COND_JSON,
+		   	PIC_CONFIG,
+		   	DOMAIN,
+		   	DELETED,
+		   	COMPANY_ID,
+		   	CREATE_TIME,
+		   	CREATE_BY,
+		   	MODIFY_TIME,
+		   	MODIFY_BY
+		) VALUES (
+		   	#{id,jdbcType=BIGINT},
+		   	#{boardId,jdbcType=BIGINT},
+		   	#{reportId,jdbcType=VARCHAR},
+		   	#{type,jdbcType=VARCHAR},
+		   	#{value,jdbcType=VARCHAR},
+		   	#{wareHouseId,jdbcType=BIGINT},
+		   	#{modelId,jdbcType=BIGINT},
+		   	#{dataModelCode,jdbcType=VARCHAR},
+		   	#{version,jdbcType=INTEGER},
+		   	#{figure,jdbcType=VARCHAR},
+		   	#{veidoo,jdbcType=VARCHAR},
+		   	#{findDate,jdbcType=VARCHAR},
+		   	#{findCondList,jdbcType=VARCHAR},
+		   	#{findCondJson,jdbcType=JSON,jdbcType=VARCHAR},
+		   	#{picConfig,jdbcType=JSON,jdbcType=VARCHAR},
+		   	#{domain,jdbcType=JSON,jdbcType=VARCHAR},
+		   	#{deleted,jdbcType=VARCHAR},
+		   	#{companyId,jdbcType=BIGINT},
+		   	#{createTime,jdbcType=TIMESTAMP},
+		   	#{createBy,jdbcType=VARCHAR},
+		   	#{modifyTime,jdbcType=TIMESTAMP},
+		   	#{modifyBy,jdbcType=VARCHAR}
+		)
+		<selectKey databaseId="mysql" keyProperty="id" order="AFTER" resultType="long">
+			SELECT LAST_INSERT_ID() AS ID
+		</selectKey>
+		<selectKey databaseId="oracle" keyProperty="id" order="BEFORE" resultType="long">
+			SELECT SEQ_BI_DATASOURCE_LOCATION_VALUE.nextval as id FROM dual
+		</selectKey>
+	</insert>
+
+	<!-- 更新实体 -->
+	<update id="update" parameterType="com.zhiyun.entity.DatasourceLocationValue">
+		UPDATE BI_DATASOURCE_LOCATION_VALUE
+		<set>
+			<if test="boardId != null">
+				BOARD_ID = #{boardId,jdbcType=BIGINT},
+			</if>
+			<if test="reportId != null">
+				REPORT_ID = #{reportId,jdbcType=VARCHAR},
+			</if>
+			<if test="type != null">
+				TYPE = #{type,jdbcType=VARCHAR},
+			</if>
+			<if test="value != null">
+				VALUE = #{value,jdbcType=VARCHAR},
+			</if>
+			<if test="wareHouseId != null">
+				WARE_HOUSE_ID = #{wareHouseId,jdbcType=BIGINT},
+			</if>
+			<if test="modelId != null">
+				MODEL_ID = #{modelId,jdbcType=BIGINT},
+			</if>
+			<if test="dataModelCode != null">
+				DATA_MODEL_CODE = #{dataModelCode,jdbcType=VARCHAR},
+			</if>
+			<if test="version != null">
+				VERSION = #{version,jdbcType=INTEGER},
+			</if>
+			<if test="figure != null">
+				FIGURE = #{figure,jdbcType=VARCHAR},
+			</if>
+			<if test="veidoo != null">
+				VEIDOO = #{veidoo,jdbcType=VARCHAR},
+			</if>
+			<if test="findDate != null">
+				FIND_DATE = #{findDate,jdbcType=VARCHAR},
+			</if>
+			<if test="findCondList != null">
+				FIND_COND_LIST = #{findCondList,jdbcType=VARCHAR},
+			</if>
+			<if test="findCondJson != null">
+				FIND_COND_JSON = #{findCondJson,jdbcType=JSON,jdbcType=VARCHAR},
+			</if>
+			<if test="picConfig != null">
+				PIC_CONFIG = #{picConfig,jdbcType=JSON,jdbcType=VARCHAR},
+			</if>
+			<if test="domain != null">
+				DOMAIN = #{domain,jdbcType=JSON,jdbcType=VARCHAR},
+			</if>
+			<if test="deleted != null">
+				DELETED = #{deleted,jdbcType=VARCHAR},
+			</if>
+			<if test="companyId != null">
+				COMPANY_ID = #{companyId,jdbcType=BIGINT},
+			</if>
+			<if test="createTime != null">
+				CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="createBy != null">
+				CREATE_BY = #{createBy,jdbcType=VARCHAR},
+			</if>
+			<if test="modifyTime != null">
+				MODIFY_TIME = #{modifyTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="modifyBy != null">
+				MODIFY_BY = #{modifyBy,jdbcType=VARCHAR},
+			</if>
+		</set>
+		WHERE ID = #{id,jdbcType=INTEGER}
+	</update>
+	
+	<!-- 更新实体 -->
+	<update id="updateFields" parameterType="com.zhiyun.entity.DatasourceLocationValue">
+		UPDATE BI_DATASOURCE_LOCATION_VALUE
+		<set>
+			BOARD_ID = #{boardId,jdbcType=BIGINT},
+			REPORT_ID = #{reportId,jdbcType=VARCHAR},
+			TYPE = #{type,jdbcType=VARCHAR},
+			VALUE = #{value,jdbcType=VARCHAR},
+			WARE_HOUSE_ID = #{wareHouseId,jdbcType=BIGINT},
+			MODEL_ID = #{modelId,jdbcType=BIGINT},
+			DATA_MODEL_CODE = #{dataModelCode,jdbcType=VARCHAR},
+			VERSION = #{version,jdbcType=INTEGER},
+			FIGURE = #{figure,jdbcType=VARCHAR},
+			VEIDOO = #{veidoo,jdbcType=VARCHAR},
+			FIND_DATE = #{findDate,jdbcType=VARCHAR},
+			FIND_COND_LIST = #{findCondList,jdbcType=VARCHAR},
+			FIND_COND_JSON = #{findCondJson,jdbcType=JSON,jdbcType=VARCHAR},
+			PIC_CONFIG = #{picConfig,jdbcType=JSON,jdbcType=VARCHAR},
+			DOMAIN = #{domain,jdbcType=JSON,jdbcType=VARCHAR},
+			DELETED = #{deleted,jdbcType=VARCHAR},
+			COMPANY_ID = #{companyId,jdbcType=BIGINT},
+			CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+			CREATE_BY = #{createBy,jdbcType=VARCHAR},
+			MODIFY_TIME = #{modifyTime,jdbcType=TIMESTAMP},
+			MODIFY_BY = #{modifyBy,jdbcType=VARCHAR},
+		</set>
+		WHERE ID = #{id,jdbcType=INTEGER}
+	</update>
+
+	<!-- 删除实体 -->
+	<update id="delete" parameterType="com.zhiyun.entity.DatasourceLocationValue">
+		UPDATE BI_DATASOURCE_LOCATION_VALUE
+		   SET DELETED     = #{deleted,jdbcType=VARCHAR},
+		       MODIFY_BY   = #{modifyBy,jdbcType=VARCHAR},
+		       MODIFY_TIME = #{modifyTime,jdbcType=TIMESTAMP}
+		 WHERE ID = #{id,jdbcType=INTEGER}
+	</update>
+
+	<!-- 查询字段 -->
+	<sql id="selectFieldSQL">
+		SELECT 
+		       ID id,
+		       BOARD_ID boardId,
+		       REPORT_ID reportId,
+		       TYPE type,
+		       VALUE value,
+		       WARE_HOUSE_ID wareHouseId,
+		       MODEL_ID modelId,
+		       DATA_MODEL_CODE dataModelCode,
+		       VERSION version,
+		       FIGURE figure,
+		       VEIDOO veidoo,
+		       FIND_DATE findDate,
+		       FIND_COND_LIST findCondList,
+		       FIND_COND_JSON findCondJson,
+		       PIC_CONFIG picConfig,
+		       DOMAIN domain,
+		       DELETED deleted,
+		       COMPANY_ID companyId,
+		       CREATE_TIME createTime,
+		       CREATE_BY createBy,
+		       MODIFY_TIME modifyTime,
+		       MODIFY_BY modifyBy
+	</sql>
+
+	<!-- 查询 -->
+	<select id="get" parameterType="map" resultType="com.zhiyun.entity.DatasourceLocationValue">
+		<include refid="selectFieldSQL" />
+		  FROM BI_DATASOURCE_LOCATION_VALUE
+		 WHERE ID = #{id,jdbcType=INTEGER}
+		   AND DELETED = #{deleted,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 查询 -->
+	<select id="find" parameterType="com.zhiyun.entity.DatasourceLocationValue" resultType="com.zhiyun.entity.DatasourceLocationValue">
+		<include refid="selectFieldSQL" />
+		  FROM BI_DATASOURCE_LOCATION_VALUE
+		<where>
+			<if test="id != null">
+				AND ID = #{id,jdbcType=INTEGER}
+			</if>
+			<if test="boardId != null">
+				AND BOARD_ID = #{boardId,jdbcType=BIGINT}
+			</if>
+			<if test="reportId != null and reportId != ''">
+				AND REPORT_ID = #{reportId,jdbcType=VARCHAR}
+			</if>
+			<if test="type != null and type != ''">
+				AND TYPE = #{type,jdbcType=VARCHAR}
+			</if>
+			<if test="value != null and value != ''">
+				AND VALUE = #{value,jdbcType=VARCHAR}
+			</if>
+			<if test="wareHouseId != null">
+				AND WARE_HOUSE_ID = #{wareHouseId,jdbcType=BIGINT}
+			</if>
+			<if test="modelId != null">
+				AND MODEL_ID = #{modelId,jdbcType=BIGINT}
+			</if>
+			<if test="dataModelCode != null and dataModelCode != ''">
+				AND DATA_MODEL_CODE = #{dataModelCode,jdbcType=VARCHAR}
+			</if>
+			<if test="version != null">
+				AND VERSION = #{version,jdbcType=INTEGER}
+			</if>
+			<if test="figure != null and figure != ''">
+				AND FIGURE = #{figure,jdbcType=VARCHAR}
+			</if>
+			<if test="veidoo != null and veidoo != ''">
+				AND VEIDOO = #{veidoo,jdbcType=VARCHAR}
+			</if>
+			<if test="findDate != null and findDate != ''">
+				AND FIND_DATE = #{findDate,jdbcType=VARCHAR}
+			</if>
+			<if test="findCondList != null and findCondList != ''">
+				AND FIND_COND_LIST = #{findCondList,jdbcType=VARCHAR}
+			</if>
+			<if test="findCondJson != null and findCondJson != ''">
+				AND FIND_COND_JSON = #{findCondJson,jdbcType=JSON,jdbcType=VARCHAR}
+			</if>
+			<if test="picConfig != null and picConfig != ''">
+				AND PIC_CONFIG = #{picConfig,jdbcType=JSON,jdbcType=VARCHAR}
+			</if>
+			<if test="domain != null and domain != ''">
+				AND DOMAIN = #{domain,jdbcType=JSON,jdbcType=VARCHAR}
+			</if>
+			<if test="deleted != null and deleted != ''">
+				AND DELETED = #{deleted,jdbcType=VARCHAR}
+			</if>
+			<if test="companyId != null">
+				AND COMPANY_ID = #{companyId,jdbcType=BIGINT}
+			</if>
+		</where>
+	</select>
+
+	<!-- 查询所有 -->
+	<select id="findAll" parameterType="map" resultType="com.zhiyun.entity.DatasourceLocationValue">
+		<include refid="selectFieldSQL" />
+		  FROM BI_DATASOURCE_LOCATION_VALUE
+		 WHERE DELETED = #{deleted,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 分页查询（条件） -->
+	<sql id="page_condition">
+		<where>
+				<if test="entity.boardId != null">
+					AND BOARD_ID = #{entity.boardId,jdbcType=BIGINT}
+				</if>
+				<if test="entity.reportId != null and entity.reportId != ''">
+					AND REPORT_ID = #{entity.reportId,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.type != null and entity.type != ''">
+					AND TYPE = #{entity.type,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.value != null and entity.value != ''">
+					AND VALUE = #{entity.value,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.wareHouseId != null">
+					AND WARE_HOUSE_ID = #{entity.wareHouseId,jdbcType=BIGINT}
+				</if>
+				<if test="entity.modelId != null">
+					AND MODEL_ID = #{entity.modelId,jdbcType=BIGINT}
+				</if>
+				<if test="entity.dataModelCode != null and entity.dataModelCode != ''">
+					AND DATA_MODEL_CODE = #{entity.dataModelCode,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.version != null">
+					AND VERSION = #{entity.version,jdbcType=INTEGER}
+				</if>
+				<if test="entity.figure != null and entity.figure != ''">
+					AND FIGURE = #{entity.figure,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.veidoo != null and entity.veidoo != ''">
+					AND VEIDOO = #{entity.veidoo,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.findDate != null and entity.findDate != ''">
+					AND FIND_DATE = #{entity.findDate,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.findCondList != null and entity.findCondList != ''">
+					AND FIND_COND_LIST = #{entity.findCondList,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.findCondJson != null and entity.findCondJson != ''">
+					AND FIND_COND_JSON = #{entity.findCondJson,jdbcType=JSON,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.picConfig != null and entity.picConfig != ''">
+					AND PIC_CONFIG = #{entity.picConfig,jdbcType=JSON,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.domain != null and entity.domain != ''">
+					AND DOMAIN = #{entity.domain,jdbcType=JSON,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.deleted != null and entity.deleted != ''">
+					AND DELETED = #{entity.deleted,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.companyId != null">
+					AND COMPANY_ID = #{entity.companyId,jdbcType=BIGINT}
+				</if>
+		</where>
+	</sql>
+
+	<!-- 分页查询（计数） -->
+	<select id="page_count" parameterType="map" resultType="int">
+		SELECT count(*)
+		  FROM BI_DATASOURCE_LOCATION_VALUE
+		<include refid="page_condition" />
+	</select>
+
+	<!-- 分页查询（数据） -->
+	<select id="page_datas" parameterType="map" resultType="com.zhiyun.entity.DatasourceLocationValue">
+		<include refid="mybatis.pageStartSQL" />
+		<include refid="selectFieldSQL" />
+		  FROM BI_DATASOURCE_LOCATION_VALUE
+		<include refid="page_condition" />
+		<include refid="mybatis.pageEndSQL" />
+	</select>
+	
+	<!-- Map查询所有 -->
+	<select id="findMapListAll" parameterType="map" resultType="map">
+		<include refid="selectFieldSQL" />
+		  FROM BI_DATASOURCE_LOCATION_VALUE
+		 WHERE DELETED = "F"
+	</select>
+	
+	<!-- Map条件查询 -->
+	<select id="findMapList" parameterType="map" resultType="map">
+		<include refid="selectFieldSQL" />
+		  FROM BI_DATASOURCE_LOCATION_VALUE
+		 <where>
+			<if test="id != null">
+				AND ID = #{id,jdbcType=INTEGER}
+			</if>
+			<if test="boardId != null">
+				AND BOARD_ID = #{boardId,jdbcType=BIGINT}
+			</if>
+			<if test="reportId != null and reportId != ''">
+				AND REPORT_ID = #{reportId,jdbcType=VARCHAR}
+			</if>
+			<if test="type != null and type != ''">
+				AND TYPE = #{type,jdbcType=VARCHAR}
+			</if>
+			<if test="value != null and value != ''">
+				AND VALUE = #{value,jdbcType=VARCHAR}
+			</if>
+			<if test="wareHouseId != null">
+				AND WARE_HOUSE_ID = #{wareHouseId,jdbcType=BIGINT}
+			</if>
+			<if test="modelId != null">
+				AND MODEL_ID = #{modelId,jdbcType=BIGINT}
+			</if>
+			<if test="dataModelCode != null and dataModelCode != ''">
+				AND DATA_MODEL_CODE = #{dataModelCode,jdbcType=VARCHAR}
+			</if>
+			<if test="version != null">
+				AND VERSION = #{version,jdbcType=INTEGER}
+			</if>
+			<if test="figure != null and figure != ''">
+				AND FIGURE = #{figure,jdbcType=VARCHAR}
+			</if>
+			<if test="veidoo != null and veidoo != ''">
+				AND VEIDOO = #{veidoo,jdbcType=VARCHAR}
+			</if>
+			<if test="findDate != null and findDate != ''">
+				AND FIND_DATE = #{findDate,jdbcType=VARCHAR}
+			</if>
+			<if test="findCondList != null and findCondList != ''">
+				AND FIND_COND_LIST = #{findCondList,jdbcType=VARCHAR}
+			</if>
+			<if test="findCondJson != null and findCondJson != ''">
+				AND FIND_COND_JSON = #{findCondJson,jdbcType=JSON,jdbcType=VARCHAR}
+			</if>
+			<if test="picConfig != null and picConfig != ''">
+				AND PIC_CONFIG = #{picConfig,jdbcType=JSON,jdbcType=VARCHAR}
+			</if>
+			<if test="domain != null and domain != ''">
+				AND DOMAIN = #{domain,jdbcType=JSON,jdbcType=VARCHAR}
+			</if>
+			<if test="deleted != null and deleted != ''">
+				AND DELETED = #{deleted,jdbcType=VARCHAR}
+			</if>
+			<if test="companyId != null">
+				AND COMPANY_ID = #{companyId,jdbcType=BIGINT}
+			</if>
+		 WHERE DELETED = "F"
+		</where>
+	</select>
+	
+	<!-- 插入实体map -->
+	<insert id="mapInsert" parameterType="map">
+		INSERT INTO BI_DATASOURCE_LOCATION_VALUE (
+		   	ID,
+		   	BOARD_ID,
+		   	REPORT_ID,
+		   	TYPE,
+		   	VALUE,
+		   	WARE_HOUSE_ID,
+		   	MODEL_ID,
+		   	DATA_MODEL_CODE,
+		   	VERSION,
+		   	FIGURE,
+		   	VEIDOO,
+		   	FIND_DATE,
+		   	FIND_COND_LIST,
+		   	FIND_COND_JSON,
+		   	PIC_CONFIG,
+		   	DOMAIN,
+		   	DELETED,
+		   	COMPANY_ID,
+		   	CREATE_TIME,
+		   	CREATE_BY,
+		   	MODIFY_TIME,
+		   	MODIFY_BY
+		) VALUES (
+		   	#{ id,jdbcType=BIGINT},
+		   	#{ boardId,jdbcType=BIGINT},
+		   	#{ reportId,jdbcType=VARCHAR},
+		   	#{ type,jdbcType=VARCHAR},
+		   	#{ value,jdbcType=VARCHAR},
+		   	#{ wareHouseId,jdbcType=BIGINT},
+		   	#{ modelId,jdbcType=BIGINT},
+		   	#{ dataModelCode,jdbcType=VARCHAR},
+		   	#{ version,jdbcType=INTEGER},
+		   	#{ figure,jdbcType=VARCHAR},
+		   	#{ veidoo,jdbcType=VARCHAR},
+		   	#{ findDate,jdbcType=VARCHAR},
+		   	#{ findCondList,jdbcType=VARCHAR},
+		   	#{ findCondJson,jdbcType=JSON,jdbcType=VARCHAR},
+		   	#{ picConfig,jdbcType=JSON,jdbcType=VARCHAR},
+		   	#{ domain,jdbcType=JSON,jdbcType=VARCHAR},
+		   	#{ deleted,jdbcType=VARCHAR},
+		   	#{ companyId,jdbcType=BIGINT},
+		   	#{ createTime,jdbcType=TIMESTAMP},
+		   	#{ createBy,jdbcType=VARCHAR},
+		   	#{ modifyTime,jdbcType=TIMESTAMP},
+		   	#{ modifyBy,jdbcType=VARCHAR}
+		)
+		<selectKey databaseId="mysql" keyProperty="id" order="AFTER" resultType="long">
+			SELECT LAST_INSERT_ID() AS ID
+		</selectKey>
+		<selectKey databaseId="oracle" keyProperty="id" order="BEFORE" resultType="long">
+			SELECT SEQ_BI_DATASOURCE_LOCATION_VALUE.nextval as id FROM dual
+		</selectKey>
+	</insert>
+	
+	<!-- 更新实体Map -->
+	<update id="mapUpdate" parameterType="map">
+		UPDATE BI_DATASOURCE_LOCATION_VALUE
+		<set>
+			<if test="boardId != null">
+				BOARD_ID = #{boardId,jdbcType=BIGINT},
+			</if>
+			<if test="reportId != null">
+				REPORT_ID = #{reportId,jdbcType=VARCHAR},
+			</if>
+			<if test="type != null">
+				TYPE = #{type,jdbcType=VARCHAR},
+			</if>
+			<if test="value != null">
+				VALUE = #{value,jdbcType=VARCHAR},
+			</if>
+			<if test="wareHouseId != null">
+				WARE_HOUSE_ID = #{wareHouseId,jdbcType=BIGINT},
+			</if>
+			<if test="modelId != null">
+				MODEL_ID = #{modelId,jdbcType=BIGINT},
+			</if>
+			<if test="dataModelCode != null">
+				DATA_MODEL_CODE = #{dataModelCode,jdbcType=VARCHAR},
+			</if>
+			<if test="version != null">
+				VERSION = #{version,jdbcType=INTEGER},
+			</if>
+			<if test="figure != null">
+				FIGURE = #{figure,jdbcType=VARCHAR},
+			</if>
+			<if test="veidoo != null">
+				VEIDOO = #{veidoo,jdbcType=VARCHAR},
+			</if>
+			<if test="findDate != null">
+				FIND_DATE = #{findDate,jdbcType=VARCHAR},
+			</if>
+			<if test="findCondList != null">
+				FIND_COND_LIST = #{findCondList,jdbcType=VARCHAR},
+			</if>
+			<if test="findCondJson != null">
+				FIND_COND_JSON = #{findCondJson,jdbcType=JSON,jdbcType=VARCHAR},
+			</if>
+			<if test="picConfig != null">
+				PIC_CONFIG = #{picConfig,jdbcType=JSON,jdbcType=VARCHAR},
+			</if>
+			<if test="domain != null">
+				DOMAIN = #{domain,jdbcType=JSON,jdbcType=VARCHAR},
+			</if>
+			<if test="deleted != null">
+				DELETED = #{deleted,jdbcType=VARCHAR},
+			</if>
+			<if test="companyId != null">
+				COMPANY_ID = #{companyId,jdbcType=BIGINT},
+			</if>
+			<if test="createTime != null">
+				CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="createBy != null">
+				CREATE_BY = #{createBy,jdbcType=VARCHAR},
+			</if>
+			<if test="modifyTime != null">
+				MODIFY_TIME = #{modifyTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="modifyBy != null">
+				MODIFY_BY = #{modifyBy,jdbcType=VARCHAR},
+			</if>
+		</set>
+		WHERE ID = #{id,jdbcType=INTEGER}
+	</update>
+
+</mapper>   

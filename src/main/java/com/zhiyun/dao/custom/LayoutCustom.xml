@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhiyun.dao.impl.LayoutDaoImpl">
+
+    <!-- 查询 -->
+    <select id="layoutDrop" parameterType="com.zhiyun.entity.Layout" resultType="com.zhiyun.entity.Layout">
+        SELECT
+        id id,
+        ALIAS alias,
+        CONFIG config
+        FROM BI_LAYOUT
+        <where>
+            DELETED = 'F'
+            AND COMPANY_ID = #{companyId,jdbcType=BIGINT}
+            <if test="alias != null and alias != ''">
+                AND ALIAS like concat ('%',#{alias,jdbcType=VARCHAR}, '%')
+            </if>
+        </where>
+    </select>
+
+</mapper>   

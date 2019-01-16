@@ -1,0 +1,1092 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhiyun.dao.impl.EmpFolderHcmDaoImpl">
+
+	<!-- 插入实体 -->
+	<insert id="insert" parameterType="com.zhiyun.entity.EmpFolderHcm">
+		INSERT INTO HCM.EMP_FOLDER_HCM (
+		   	ID,
+		   	EMP_NO,
+		   	EMP_NAME,
+		   	ENG_NAME,
+		   	USER_ID,
+		   	JOIN_DATE,
+		   	SEXLY,
+		   	COUNTRY,
+		   	ANCESTRAL,
+		   	HOUSEHOLD_ADD,
+		   	DOMICILE,
+		   	EDUCATION,
+		   	COLLEGE_NAME,
+		   	ID_NUMBER,
+		   	SOCIAL,
+		   	IS_SURSANCE,
+		   	PHONE,
+		   	EMAIL,
+		   	URGENT_PHONE,
+		   	TEAM_ID,
+		   	BIRTHDAY,
+		   	GRADUATION_DATE,
+		   	IS_PARTY,
+		   	IS_HIRE,
+		   	IS_OPERATING,
+		   	IS_PERFORMANCE,
+		   	IS_SAL,
+		   	IS_ATT,
+		   	IS_SHAKE,
+		   	SCH_ID,
+		   	PERFORMANCE,
+		   	ZC,
+		   	NATION,
+		   	EMOTION_STYLE,
+		   	URGENT,
+		   	CENSUS,
+		   	CONSTELLATORY,
+		   	BLOOD,
+		   	HEALTH,
+		   	PERFORMANCE_ID,
+		   	PHOTO,
+		   	DELETED,
+		   	COMPANY_ID,
+		   	CREATE_TIME,
+		   	IS_ID_CARD,
+		   	CREATE_BY,
+		   	MODIFY_TIME,
+		   	MODIFY_BY
+		) VALUES (
+		   	#{id,jdbcType=BIGINT},
+		   	#{empNo,jdbcType=VARCHAR},
+		   	#{empName,jdbcType=VARCHAR},
+		   	#{engName,jdbcType=VARCHAR},
+		   	#{userId,jdbcType=BIGINT},
+		   	#{joinDate,jdbcType=TIMESTAMP},
+		   	#{sexly,jdbcType=VARCHAR},
+		   	#{country,jdbcType=VARCHAR},
+		   	#{ancestral,jdbcType=VARCHAR},
+		   	#{householdAdd,jdbcType=VARCHAR},
+		   	#{domicile,jdbcType=VARCHAR},
+		   	#{education,jdbcType=VARCHAR},
+		   	#{collegeName,jdbcType=VARCHAR},
+		   	#{idNumber,jdbcType=VARCHAR},
+		   	#{social,jdbcType=VARCHAR},
+		   	#{isSursance,jdbcType=VARCHAR},
+		   	#{phone,jdbcType=VARCHAR},
+		   	#{email,jdbcType=VARCHAR},
+		   	#{urgentPhone,jdbcType=VARCHAR},
+		   	#{teamId,jdbcType=VARCHAR},
+		   	#{birthday,jdbcType=TIMESTAMP},
+		   	#{graduationDate,jdbcType=TIMESTAMP},
+		   	#{isParty,jdbcType=VARCHAR},
+		   	#{isHire,jdbcType=VARCHAR},
+		   	#{isOperating,jdbcType=TINYINT},
+		   	#{isPerformance,jdbcType=TINYINT},
+		   	#{isSal,jdbcType=TINYINT},
+		   	#{isAtt,jdbcType=TINYINT},
+		   	#{isShake,jdbcType=TINYINT},
+		   	#{schId,jdbcType=BIGINT},
+		   	#{performance,jdbcType=BIGINT},
+		   	#{zc,jdbcType=VARCHAR},
+		   	#{nation,jdbcType=VARCHAR},
+		   	#{emotionStyle,jdbcType=VARCHAR},
+		   	#{urgent,jdbcType=VARCHAR},
+		   	#{census,jdbcType=VARCHAR},
+		   	#{constellatory,jdbcType=VARCHAR},
+		   	#{blood,jdbcType=VARCHAR},
+		   	#{health,jdbcType=VARCHAR},
+		   	#{performanceId,jdbcType=BIGINT},
+		   	#{photo,jdbcType=VARCHAR},
+		   	#{deleted,jdbcType=VARCHAR},
+		   	#{companyId,jdbcType=BIGINT},
+		   	#{createTime,jdbcType=TIMESTAMP},
+		   	#{isIdCard,jdbcType=TINYINT},
+		   	#{createBy,jdbcType=VARCHAR},
+		   	#{modifyTime,jdbcType=TIMESTAMP},
+		   	#{modifyBy,jdbcType=VARCHAR}
+		)
+		<selectKey databaseId="mysql" keyProperty="id" order="AFTER" resultType="long">
+			SELECT LAST_INSERT_ID() AS ID
+		</selectKey>
+		<selectKey databaseId="oracle" keyProperty="id" order="BEFORE" resultType="long">
+			SELECT SEQ_HCM.EMP_FOLDER_HCM.nextval as id FROM dual
+		</selectKey>
+	</insert>
+
+	<!-- 更新实体 -->
+	<update id="update" parameterType="com.zhiyun.entity.EmpFolderHcm">
+		UPDATE HCM.EMP_FOLDER_HCM
+		<set>
+			<if test="empNo != null">
+				EMP_NO = #{empNo,jdbcType=VARCHAR},
+			</if>
+			<if test="empName != null">
+				EMP_NAME = #{empName,jdbcType=VARCHAR},
+			</if>
+			<if test="engName != null">
+				ENG_NAME = #{engName,jdbcType=VARCHAR},
+			</if>
+			<if test="userId != null">
+				USER_ID = #{userId,jdbcType=BIGINT},
+			</if>
+			<if test="joinDate != null">
+				JOIN_DATE = #{joinDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="sexly != null">
+				SEXLY = #{sexly,jdbcType=VARCHAR},
+			</if>
+			<if test="country != null">
+				COUNTRY = #{country,jdbcType=VARCHAR},
+			</if>
+			<if test="ancestral != null">
+				ANCESTRAL = #{ancestral,jdbcType=VARCHAR},
+			</if>
+			<if test="householdAdd != null">
+				HOUSEHOLD_ADD = #{householdAdd,jdbcType=VARCHAR},
+			</if>
+			<if test="domicile != null">
+				DOMICILE = #{domicile,jdbcType=VARCHAR},
+			</if>
+			<if test="education != null">
+				EDUCATION = #{education,jdbcType=VARCHAR},
+			</if>
+			<if test="collegeName != null">
+				COLLEGE_NAME = #{collegeName,jdbcType=VARCHAR},
+			</if>
+			<if test="idNumber != null">
+				ID_NUMBER = #{idNumber,jdbcType=VARCHAR},
+			</if>
+			<if test="social != null">
+				SOCIAL = #{social,jdbcType=VARCHAR},
+			</if>
+			<if test="isSursance != null">
+				IS_SURSANCE = #{isSursance,jdbcType=VARCHAR},
+			</if>
+			<if test="phone != null">
+				PHONE = #{phone,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				EMAIL = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="urgentPhone != null">
+				URGENT_PHONE = #{urgentPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="teamId != null">
+				TEAM_ID = #{teamId,jdbcType=VARCHAR},
+			</if>
+			<if test="birthday != null">
+				BIRTHDAY = #{birthday,jdbcType=TIMESTAMP},
+			</if>
+			<if test="graduationDate != null">
+				GRADUATION_DATE = #{graduationDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="isParty != null">
+				IS_PARTY = #{isParty,jdbcType=VARCHAR},
+			</if>
+			<if test="isHire != null">
+				IS_HIRE = #{isHire,jdbcType=VARCHAR},
+			</if>
+			<if test="isOperating != null">
+				IS_OPERATING = #{isOperating,jdbcType=TINYINT},
+			</if>
+			<if test="isPerformance != null">
+				IS_PERFORMANCE = #{isPerformance,jdbcType=TINYINT},
+			</if>
+			<if test="isSal != null">
+				IS_SAL = #{isSal,jdbcType=TINYINT},
+			</if>
+			<if test="isAtt != null">
+				IS_ATT = #{isAtt,jdbcType=TINYINT},
+			</if>
+			<if test="isShake != null">
+				IS_SHAKE = #{isShake,jdbcType=TINYINT},
+			</if>
+			<if test="schId != null">
+				SCH_ID = #{schId,jdbcType=BIGINT},
+			</if>
+			<if test="performance != null">
+				PERFORMANCE = #{performance,jdbcType=BIGINT},
+			</if>
+			<if test="zc != null">
+				ZC = #{zc,jdbcType=VARCHAR},
+			</if>
+			<if test="nation != null">
+				NATION = #{nation,jdbcType=VARCHAR},
+			</if>
+			<if test="emotionStyle != null">
+				EMOTION_STYLE = #{emotionStyle,jdbcType=VARCHAR},
+			</if>
+			<if test="urgent != null">
+				URGENT = #{urgent,jdbcType=VARCHAR},
+			</if>
+			<if test="census != null">
+				CENSUS = #{census,jdbcType=VARCHAR},
+			</if>
+			<if test="constellatory != null">
+				CONSTELLATORY = #{constellatory,jdbcType=VARCHAR},
+			</if>
+			<if test="blood != null">
+				BLOOD = #{blood,jdbcType=VARCHAR},
+			</if>
+			<if test="health != null">
+				HEALTH = #{health,jdbcType=VARCHAR},
+			</if>
+			<if test="performanceId != null">
+				PERFORMANCE_ID = #{performanceId,jdbcType=BIGINT},
+			</if>
+			<if test="photo != null">
+				PHOTO = #{photo,jdbcType=VARCHAR},
+			</if>
+			<if test="deleted != null">
+				DELETED = #{deleted,jdbcType=VARCHAR},
+			</if>
+			<if test="companyId != null">
+				COMPANY_ID = #{companyId,jdbcType=BIGINT},
+			</if>
+			<if test="createTime != null">
+				CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="isIdCard != null">
+				IS_ID_CARD = #{isIdCard,jdbcType=TINYINT},
+			</if>
+			<if test="createBy != null">
+				CREATE_BY = #{createBy,jdbcType=VARCHAR},
+			</if>
+			<if test="modifyTime != null">
+				MODIFY_TIME = #{modifyTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="modifyBy != null">
+				MODIFY_BY = #{modifyBy,jdbcType=VARCHAR},
+			</if>
+		</set>
+		WHERE ID = #{id,jdbcType=INTEGER}
+	</update>
+	
+	<!-- 更新实体 -->
+	<update id="updateFields" parameterType="com.zhiyun.entity.EmpFolderHcm">
+		UPDATE HCM.EMP_FOLDER_HCM
+		<set>
+			EMP_NO = #{empNo,jdbcType=VARCHAR},
+			EMP_NAME = #{empName,jdbcType=VARCHAR},
+			ENG_NAME = #{engName,jdbcType=VARCHAR},
+			USER_ID = #{userId,jdbcType=BIGINT},
+			JOIN_DATE = #{joinDate,jdbcType=TIMESTAMP},
+			SEXLY = #{sexly,jdbcType=VARCHAR},
+			COUNTRY = #{country,jdbcType=VARCHAR},
+			ANCESTRAL = #{ancestral,jdbcType=VARCHAR},
+			HOUSEHOLD_ADD = #{householdAdd,jdbcType=VARCHAR},
+			DOMICILE = #{domicile,jdbcType=VARCHAR},
+			EDUCATION = #{education,jdbcType=VARCHAR},
+			COLLEGE_NAME = #{collegeName,jdbcType=VARCHAR},
+			ID_NUMBER = #{idNumber,jdbcType=VARCHAR},
+			SOCIAL = #{social,jdbcType=VARCHAR},
+			IS_SURSANCE = #{isSursance,jdbcType=VARCHAR},
+			PHONE = #{phone,jdbcType=VARCHAR},
+			EMAIL = #{email,jdbcType=VARCHAR},
+			URGENT_PHONE = #{urgentPhone,jdbcType=VARCHAR},
+			TEAM_ID = #{teamId,jdbcType=VARCHAR},
+			BIRTHDAY = #{birthday,jdbcType=TIMESTAMP},
+			GRADUATION_DATE = #{graduationDate,jdbcType=TIMESTAMP},
+			IS_PARTY = #{isParty,jdbcType=VARCHAR},
+			IS_HIRE = #{isHire,jdbcType=VARCHAR},
+			IS_OPERATING = #{isOperating,jdbcType=TINYINT},
+			IS_PERFORMANCE = #{isPerformance,jdbcType=TINYINT},
+			IS_SAL = #{isSal,jdbcType=TINYINT},
+			IS_ATT = #{isAtt,jdbcType=TINYINT},
+			IS_SHAKE = #{isShake,jdbcType=TINYINT},
+			SCH_ID = #{schId,jdbcType=BIGINT},
+			PERFORMANCE = #{performance,jdbcType=BIGINT},
+			ZC = #{zc,jdbcType=VARCHAR},
+			NATION = #{nation,jdbcType=VARCHAR},
+			EMOTION_STYLE = #{emotionStyle,jdbcType=VARCHAR},
+			URGENT = #{urgent,jdbcType=VARCHAR},
+			CENSUS = #{census,jdbcType=VARCHAR},
+			CONSTELLATORY = #{constellatory,jdbcType=VARCHAR},
+			BLOOD = #{blood,jdbcType=VARCHAR},
+			HEALTH = #{health,jdbcType=VARCHAR},
+			PERFORMANCE_ID = #{performanceId,jdbcType=BIGINT},
+			PHOTO = #{photo,jdbcType=VARCHAR},
+			DELETED = #{deleted,jdbcType=VARCHAR},
+			COMPANY_ID = #{companyId,jdbcType=BIGINT},
+			CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+			IS_ID_CARD = #{isIdCard,jdbcType=TINYINT},
+			CREATE_BY = #{createBy,jdbcType=VARCHAR},
+			MODIFY_TIME = #{modifyTime,jdbcType=TIMESTAMP},
+			MODIFY_BY = #{modifyBy,jdbcType=VARCHAR},
+		</set>
+		WHERE ID = #{id,jdbcType=INTEGER}
+	</update>
+
+	<!-- 删除实体 -->
+	<update id="delete" parameterType="com.zhiyun.entity.EmpFolderHcm">
+		UPDATE HCM.EMP_FOLDER_HCM
+		   SET DELETED     = #{deleted,jdbcType=VARCHAR},
+		       MODIFY_BY   = #{modifyBy,jdbcType=VARCHAR},
+		       MODIFY_TIME = #{modifyTime,jdbcType=TIMESTAMP}
+		 WHERE ID = #{id,jdbcType=INTEGER}
+	</update>
+
+	<!-- 查询字段 -->
+	<sql id="selectFieldSQL">
+		SELECT 
+		       ID id,
+		       EMP_NO empNo,
+		       EMP_NAME empName,
+		       ENG_NAME engName,
+		       USER_ID userId,
+		       JOIN_DATE joinDate,
+		       SEXLY sexly,
+		       COUNTRY country,
+		       ANCESTRAL ancestral,
+		       HOUSEHOLD_ADD householdAdd,
+		       DOMICILE domicile,
+		       EDUCATION education,
+		       COLLEGE_NAME collegeName,
+		       ID_NUMBER idNumber,
+		       SOCIAL social,
+		       IS_SURSANCE isSursance,
+		       PHONE phone,
+		       EMAIL email,
+		       URGENT_PHONE urgentPhone,
+		       TEAM_ID teamId,
+		       BIRTHDAY birthday,
+		       GRADUATION_DATE graduationDate,
+		       IS_PARTY isParty,
+		       IS_HIRE isHire,
+		       IS_OPERATING isOperating,
+		       IS_PERFORMANCE isPerformance,
+		       IS_SAL isSal,
+		       IS_ATT isAtt,
+		       IS_SHAKE isShake,
+		       SCH_ID schId,
+		       PERFORMANCE performance,
+		       ZC zc,
+		       NATION nation,
+		       EMOTION_STYLE emotionStyle,
+		       URGENT urgent,
+		       CENSUS census,
+		       CONSTELLATORY constellatory,
+		       BLOOD blood,
+		       HEALTH health,
+		       PERFORMANCE_ID performanceId,
+		       PHOTO photo,
+		       DELETED deleted,
+		       COMPANY_ID companyId,
+		       CREATE_TIME createTime,
+		       IS_ID_CARD isIdCard,
+		       CREATE_BY createBy,
+		       MODIFY_TIME modifyTime,
+		       MODIFY_BY modifyBy
+	</sql>
+
+	<!-- 查询 -->
+	<select id="get" parameterType="map" resultType="com.zhiyun.entity.EmpFolderHcm">
+		<include refid="selectFieldSQL" />
+		  FROM HCM.EMP_FOLDER_HCM
+		 WHERE ID = #{id,jdbcType=INTEGER}
+		   AND DELETED = #{deleted,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 查询 -->
+	<select id="find" parameterType="com.zhiyun.entity.EmpFolderHcm" resultType="com.zhiyun.entity.EmpFolderHcm">
+		<include refid="selectFieldSQL" />
+		  FROM HCM.EMP_FOLDER_HCM
+		<where>
+			<if test="id != null">
+				AND ID = #{id,jdbcType=INTEGER}
+			</if>
+			<if test="empNo != null and empNo != ''">
+				AND EMP_NO = #{empNo,jdbcType=VARCHAR}
+			</if>
+			<if test="empName != null and empName != ''">
+				AND EMP_NAME = #{empName,jdbcType=VARCHAR}
+			</if>
+			<if test="engName != null and engName != ''">
+				AND ENG_NAME = #{engName,jdbcType=VARCHAR}
+			</if>
+			<if test="userId != null">
+				AND USER_ID = #{userId,jdbcType=BIGINT}
+			</if>
+			<if test="joinDate != null">
+				AND JOIN_DATE = #{joinDate,jdbcType=TIMESTAMP}
+			</if>
+			<if test="sexly != null and sexly != ''">
+				AND SEXLY = #{sexly,jdbcType=VARCHAR}
+			</if>
+			<if test="country != null and country != ''">
+				AND COUNTRY = #{country,jdbcType=VARCHAR}
+			</if>
+			<if test="ancestral != null and ancestral != ''">
+				AND ANCESTRAL = #{ancestral,jdbcType=VARCHAR}
+			</if>
+			<if test="householdAdd != null and householdAdd != ''">
+				AND HOUSEHOLD_ADD = #{householdAdd,jdbcType=VARCHAR}
+			</if>
+			<if test="domicile != null and domicile != ''">
+				AND DOMICILE = #{domicile,jdbcType=VARCHAR}
+			</if>
+			<if test="education != null and education != ''">
+				AND EDUCATION = #{education,jdbcType=VARCHAR}
+			</if>
+			<if test="collegeName != null and collegeName != ''">
+				AND COLLEGE_NAME = #{collegeName,jdbcType=VARCHAR}
+			</if>
+			<if test="idNumber != null and idNumber != ''">
+				AND ID_NUMBER = #{idNumber,jdbcType=VARCHAR}
+			</if>
+			<if test="social != null and social != ''">
+				AND SOCIAL = #{social,jdbcType=VARCHAR}
+			</if>
+			<if test="isSursance != null and isSursance != ''">
+				AND IS_SURSANCE = #{isSursance,jdbcType=VARCHAR}
+			</if>
+			<if test="phone != null and phone != ''">
+				AND PHONE = #{phone,jdbcType=VARCHAR}
+			</if>
+			<if test="email != null and email != ''">
+				AND EMAIL = #{email,jdbcType=VARCHAR}
+			</if>
+			<if test="urgentPhone != null and urgentPhone != ''">
+				AND URGENT_PHONE = #{urgentPhone,jdbcType=VARCHAR}
+			</if>
+			<if test="teamId != null and teamId != ''">
+				AND TEAM_ID = #{teamId,jdbcType=VARCHAR}
+			</if>
+			<if test="birthday != null">
+				AND BIRTHDAY = #{birthday,jdbcType=TIMESTAMP}
+			</if>
+			<if test="graduationDate != null">
+				AND GRADUATION_DATE = #{graduationDate,jdbcType=TIMESTAMP}
+			</if>
+			<if test="isParty != null and isParty != ''">
+				AND IS_PARTY = #{isParty,jdbcType=VARCHAR}
+			</if>
+			<if test="isHire != null and isHire != ''">
+				AND IS_HIRE = #{isHire,jdbcType=VARCHAR}
+			</if>
+			<if test="isOperating != null">
+				AND IS_OPERATING = #{isOperating,jdbcType=TINYINT}
+			</if>
+			<if test="isPerformance != null">
+				AND IS_PERFORMANCE = #{isPerformance,jdbcType=TINYINT}
+			</if>
+			<if test="isSal != null">
+				AND IS_SAL = #{isSal,jdbcType=TINYINT}
+			</if>
+			<if test="isAtt != null">
+				AND IS_ATT = #{isAtt,jdbcType=TINYINT}
+			</if>
+			<if test="isShake != null">
+				AND IS_SHAKE = #{isShake,jdbcType=TINYINT}
+			</if>
+			<if test="schId != null">
+				AND SCH_ID = #{schId,jdbcType=BIGINT}
+			</if>
+			<if test="performance != null">
+				AND PERFORMANCE = #{performance,jdbcType=BIGINT}
+			</if>
+			<if test="zc != null and zc != ''">
+				AND ZC = #{zc,jdbcType=VARCHAR}
+			</if>
+			<if test="nation != null and nation != ''">
+				AND NATION = #{nation,jdbcType=VARCHAR}
+			</if>
+			<if test="emotionStyle != null and emotionStyle != ''">
+				AND EMOTION_STYLE = #{emotionStyle,jdbcType=VARCHAR}
+			</if>
+			<if test="urgent != null and urgent != ''">
+				AND URGENT = #{urgent,jdbcType=VARCHAR}
+			</if>
+			<if test="census != null and census != ''">
+				AND CENSUS = #{census,jdbcType=VARCHAR}
+			</if>
+			<if test="constellatory != null and constellatory != ''">
+				AND CONSTELLATORY = #{constellatory,jdbcType=VARCHAR}
+			</if>
+			<if test="blood != null and blood != ''">
+				AND BLOOD = #{blood,jdbcType=VARCHAR}
+			</if>
+			<if test="health != null and health != ''">
+				AND HEALTH = #{health,jdbcType=VARCHAR}
+			</if>
+			<if test="performanceId != null">
+				AND PERFORMANCE_ID = #{performanceId,jdbcType=BIGINT}
+			</if>
+			<if test="photo != null and photo != ''">
+				AND PHOTO = #{photo,jdbcType=VARCHAR}
+			</if>
+			<if test="deleted != null and deleted != ''">
+				AND DELETED = #{deleted,jdbcType=VARCHAR}
+			</if>
+			<if test="companyId != null">
+				AND COMPANY_ID = #{companyId,jdbcType=BIGINT}
+			</if>
+			<if test="isIdCard != null">
+				AND IS_ID_CARD = #{isIdCard,jdbcType=TINYINT}
+			</if>
+		</where>
+	</select>
+
+	<!-- 查询所有 -->
+	<select id="findAll" parameterType="map" resultType="com.zhiyun.entity.EmpFolderHcm">
+		<include refid="selectFieldSQL" />
+		  FROM HCM.EMP_FOLDER_HCM
+		 WHERE DELETED = #{deleted,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 分页查询（条件） -->
+	<sql id="page_condition">
+		<where>
+				<if test="entity.empNo != null and entity.empNo != ''">
+					AND EMP_NO = #{entity.empNo,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.empName != null and entity.empName != ''">
+					AND EMP_NAME = #{entity.empName,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.engName != null and entity.engName != ''">
+					AND ENG_NAME = #{entity.engName,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.userId != null">
+					AND USER_ID = #{entity.userId,jdbcType=BIGINT}
+				</if>
+				<if test="entity.joinDate != null">
+					AND JOIN_DATE = #{entity.joinDate,jdbcType=TIMESTAMP}
+				</if>
+				<if test="entity.sexly != null and entity.sexly != ''">
+					AND SEXLY = #{entity.sexly,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.country != null and entity.country != ''">
+					AND COUNTRY = #{entity.country,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.ancestral != null and entity.ancestral != ''">
+					AND ANCESTRAL = #{entity.ancestral,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.householdAdd != null and entity.householdAdd != ''">
+					AND HOUSEHOLD_ADD = #{entity.householdAdd,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.domicile != null and entity.domicile != ''">
+					AND DOMICILE = #{entity.domicile,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.education != null and entity.education != ''">
+					AND EDUCATION = #{entity.education,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.collegeName != null and entity.collegeName != ''">
+					AND COLLEGE_NAME = #{entity.collegeName,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.idNumber != null and entity.idNumber != ''">
+					AND ID_NUMBER = #{entity.idNumber,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.social != null and entity.social != ''">
+					AND SOCIAL = #{entity.social,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.isSursance != null and entity.isSursance != ''">
+					AND IS_SURSANCE = #{entity.isSursance,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.phone != null and entity.phone != ''">
+					AND PHONE = #{entity.phone,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.email != null and entity.email != ''">
+					AND EMAIL = #{entity.email,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.urgentPhone != null and entity.urgentPhone != ''">
+					AND URGENT_PHONE = #{entity.urgentPhone,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.teamId != null and entity.teamId != ''">
+					AND TEAM_ID = #{entity.teamId,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.birthday != null">
+					AND BIRTHDAY = #{entity.birthday,jdbcType=TIMESTAMP}
+				</if>
+				<if test="entity.graduationDate != null">
+					AND GRADUATION_DATE = #{entity.graduationDate,jdbcType=TIMESTAMP}
+				</if>
+				<if test="entity.isParty != null and entity.isParty != ''">
+					AND IS_PARTY = #{entity.isParty,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.isHire != null and entity.isHire != ''">
+					AND IS_HIRE = #{entity.isHire,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.isOperating != null">
+					AND IS_OPERATING = #{entity.isOperating,jdbcType=TINYINT}
+				</if>
+				<if test="entity.isPerformance != null">
+					AND IS_PERFORMANCE = #{entity.isPerformance,jdbcType=TINYINT}
+				</if>
+				<if test="entity.isSal != null">
+					AND IS_SAL = #{entity.isSal,jdbcType=TINYINT}
+				</if>
+				<if test="entity.isAtt != null">
+					AND IS_ATT = #{entity.isAtt,jdbcType=TINYINT}
+				</if>
+				<if test="entity.isShake != null">
+					AND IS_SHAKE = #{entity.isShake,jdbcType=TINYINT}
+				</if>
+				<if test="entity.schId != null">
+					AND SCH_ID = #{entity.schId,jdbcType=BIGINT}
+				</if>
+				<if test="entity.performance != null">
+					AND PERFORMANCE = #{entity.performance,jdbcType=BIGINT}
+				</if>
+				<if test="entity.zc != null and entity.zc != ''">
+					AND ZC = #{entity.zc,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.nation != null and entity.nation != ''">
+					AND NATION = #{entity.nation,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.emotionStyle != null and entity.emotionStyle != ''">
+					AND EMOTION_STYLE = #{entity.emotionStyle,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.urgent != null and entity.urgent != ''">
+					AND URGENT = #{entity.urgent,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.census != null and entity.census != ''">
+					AND CENSUS = #{entity.census,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.constellatory != null and entity.constellatory != ''">
+					AND CONSTELLATORY = #{entity.constellatory,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.blood != null and entity.blood != ''">
+					AND BLOOD = #{entity.blood,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.health != null and entity.health != ''">
+					AND HEALTH = #{entity.health,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.performanceId != null">
+					AND PERFORMANCE_ID = #{entity.performanceId,jdbcType=BIGINT}
+				</if>
+				<if test="entity.photo != null and entity.photo != ''">
+					AND PHOTO = #{entity.photo,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.deleted != null and entity.deleted != ''">
+					AND DELETED = #{entity.deleted,jdbcType=VARCHAR}
+				</if>
+				<if test="entity.companyId != null">
+					AND COMPANY_ID = #{entity.companyId,jdbcType=BIGINT}
+				</if>
+				<if test="entity.isIdCard != null">
+					AND IS_ID_CARD = #{entity.isIdCard,jdbcType=TINYINT}
+				</if>
+		</where>
+	</sql>
+
+	<!-- 分页查询（计数） -->
+	<select id="page_count" parameterType="map" resultType="int">
+		SELECT count(*)
+		  FROM HCM.EMP_FOLDER_HCM
+		<include refid="page_condition" />
+	</select>
+
+	<!-- 分页查询（数据） -->
+	<select id="page_datas" parameterType="map" resultType="com.zhiyun.entity.EmpFolderHcm">
+		<include refid="mybatis.pageStartSQL" />
+		<include refid="selectFieldSQL" />
+		  FROM HCM.EMP_FOLDER_HCM
+		<include refid="page_condition" />
+		<include refid="mybatis.pageEndSQL" />
+	</select>
+	
+	<!-- Map查询所有 -->
+	<select id="findMapListAll" parameterType="map" resultType="map">
+		<include refid="selectFieldSQL" />
+		  FROM HCM.EMP_FOLDER_HCM
+		 WHERE DELETED = "F"
+	</select>
+	
+	<!-- Map条件查询 -->
+	<select id="findMapList" parameterType="map" resultType="map">
+		<include refid="selectFieldSQL" />
+		  FROM HCM.EMP_FOLDER_HCM
+		 <where>
+			<if test="id != null">
+				AND ID = #{id,jdbcType=INTEGER}
+			</if>
+			<if test="empNo != null and empNo != ''">
+				AND EMP_NO = #{empNo,jdbcType=VARCHAR}
+			</if>
+			<if test="empName != null and empName != ''">
+				AND EMP_NAME = #{empName,jdbcType=VARCHAR}
+			</if>
+			<if test="engName != null and engName != ''">
+				AND ENG_NAME = #{engName,jdbcType=VARCHAR}
+			</if>
+			<if test="userId != null">
+				AND USER_ID = #{userId,jdbcType=BIGINT}
+			</if>
+			<if test="joinDate != null">
+				AND JOIN_DATE = #{joinDate,jdbcType=TIMESTAMP}
+			</if>
+			<if test="sexly != null and sexly != ''">
+				AND SEXLY = #{sexly,jdbcType=VARCHAR}
+			</if>
+			<if test="country != null and country != ''">
+				AND COUNTRY = #{country,jdbcType=VARCHAR}
+			</if>
+			<if test="ancestral != null and ancestral != ''">
+				AND ANCESTRAL = #{ancestral,jdbcType=VARCHAR}
+			</if>
+			<if test="householdAdd != null and householdAdd != ''">
+				AND HOUSEHOLD_ADD = #{householdAdd,jdbcType=VARCHAR}
+			</if>
+			<if test="domicile != null and domicile != ''">
+				AND DOMICILE = #{domicile,jdbcType=VARCHAR}
+			</if>
+			<if test="education != null and education != ''">
+				AND EDUCATION = #{education,jdbcType=VARCHAR}
+			</if>
+			<if test="collegeName != null and collegeName != ''">
+				AND COLLEGE_NAME = #{collegeName,jdbcType=VARCHAR}
+			</if>
+			<if test="idNumber != null and idNumber != ''">
+				AND ID_NUMBER = #{idNumber,jdbcType=VARCHAR}
+			</if>
+			<if test="social != null and social != ''">
+				AND SOCIAL = #{social,jdbcType=VARCHAR}
+			</if>
+			<if test="isSursance != null and isSursance != ''">
+				AND IS_SURSANCE = #{isSursance,jdbcType=VARCHAR}
+			</if>
+			<if test="phone != null and phone != ''">
+				AND PHONE = #{phone,jdbcType=VARCHAR}
+			</if>
+			<if test="email != null and email != ''">
+				AND EMAIL = #{email,jdbcType=VARCHAR}
+			</if>
+			<if test="urgentPhone != null and urgentPhone != ''">
+				AND URGENT_PHONE = #{urgentPhone,jdbcType=VARCHAR}
+			</if>
+			<if test="teamId != null and teamId != ''">
+				AND TEAM_ID = #{teamId,jdbcType=VARCHAR}
+			</if>
+			<if test="birthday != null">
+				AND BIRTHDAY = #{birthday,jdbcType=TIMESTAMP}
+			</if>
+			<if test="graduationDate != null">
+				AND GRADUATION_DATE = #{graduationDate,jdbcType=TIMESTAMP}
+			</if>
+			<if test="isParty != null and isParty != ''">
+				AND IS_PARTY = #{isParty,jdbcType=VARCHAR}
+			</if>
+			<if test="isHire != null and isHire != ''">
+				AND IS_HIRE = #{isHire,jdbcType=VARCHAR}
+			</if>
+			<if test="isOperating != null">
+				AND IS_OPERATING = #{isOperating,jdbcType=TINYINT}
+			</if>
+			<if test="isPerformance != null">
+				AND IS_PERFORMANCE = #{isPerformance,jdbcType=TINYINT}
+			</if>
+			<if test="isSal != null">
+				AND IS_SAL = #{isSal,jdbcType=TINYINT}
+			</if>
+			<if test="isAtt != null">
+				AND IS_ATT = #{isAtt,jdbcType=TINYINT}
+			</if>
+			<if test="isShake != null">
+				AND IS_SHAKE = #{isShake,jdbcType=TINYINT}
+			</if>
+			<if test="schId != null">
+				AND SCH_ID = #{schId,jdbcType=BIGINT}
+			</if>
+			<if test="performance != null">
+				AND PERFORMANCE = #{performance,jdbcType=BIGINT}
+			</if>
+			<if test="zc != null and zc != ''">
+				AND ZC = #{zc,jdbcType=VARCHAR}
+			</if>
+			<if test="nation != null and nation != ''">
+				AND NATION = #{nation,jdbcType=VARCHAR}
+			</if>
+			<if test="emotionStyle != null and emotionStyle != ''">
+				AND EMOTION_STYLE = #{emotionStyle,jdbcType=VARCHAR}
+			</if>
+			<if test="urgent != null and urgent != ''">
+				AND URGENT = #{urgent,jdbcType=VARCHAR}
+			</if>
+			<if test="census != null and census != ''">
+				AND CENSUS = #{census,jdbcType=VARCHAR}
+			</if>
+			<if test="constellatory != null and constellatory != ''">
+				AND CONSTELLATORY = #{constellatory,jdbcType=VARCHAR}
+			</if>
+			<if test="blood != null and blood != ''">
+				AND BLOOD = #{blood,jdbcType=VARCHAR}
+			</if>
+			<if test="health != null and health != ''">
+				AND HEALTH = #{health,jdbcType=VARCHAR}
+			</if>
+			<if test="performanceId != null">
+				AND PERFORMANCE_ID = #{performanceId,jdbcType=BIGINT}
+			</if>
+			<if test="photo != null and photo != ''">
+				AND PHOTO = #{photo,jdbcType=VARCHAR}
+			</if>
+			<if test="deleted != null and deleted != ''">
+				AND DELETED = #{deleted,jdbcType=VARCHAR}
+			</if>
+			<if test="companyId != null">
+				AND COMPANY_ID = #{companyId,jdbcType=BIGINT}
+			</if>
+			<if test="isIdCard != null">
+				AND IS_ID_CARD = #{isIdCard,jdbcType=TINYINT}
+			</if>
+		 WHERE DELETED = "F"
+		</where>
+	</select>
+	
+	<!-- 插入实体map -->
+	<insert id="mapInsert" parameterType="map">
+		INSERT INTO HCM.EMP_FOLDER_HCM (
+		   	ID,
+		   	EMP_NO,
+		   	EMP_NAME,
+		   	ENG_NAME,
+		   	USER_ID,
+		   	JOIN_DATE,
+		   	SEXLY,
+		   	COUNTRY,
+		   	ANCESTRAL,
+		   	HOUSEHOLD_ADD,
+		   	DOMICILE,
+		   	EDUCATION,
+		   	COLLEGE_NAME,
+		   	ID_NUMBER,
+		   	SOCIAL,
+		   	IS_SURSANCE,
+		   	PHONE,
+		   	EMAIL,
+		   	URGENT_PHONE,
+		   	TEAM_ID,
+		   	BIRTHDAY,
+		   	GRADUATION_DATE,
+		   	IS_PARTY,
+		   	IS_HIRE,
+		   	IS_OPERATING,
+		   	IS_PERFORMANCE,
+		   	IS_SAL,
+		   	IS_ATT,
+		   	IS_SHAKE,
+		   	SCH_ID,
+		   	PERFORMANCE,
+		   	ZC,
+		   	NATION,
+		   	EMOTION_STYLE,
+		   	URGENT,
+		   	CENSUS,
+		   	CONSTELLATORY,
+		   	BLOOD,
+		   	HEALTH,
+		   	PERFORMANCE_ID,
+		   	PHOTO,
+		   	DELETED,
+		   	COMPANY_ID,
+		   	CREATE_TIME,
+		   	IS_ID_CARD,
+		   	CREATE_BY,
+		   	MODIFY_TIME,
+		   	MODIFY_BY
+		) VALUES (
+		   	#{ id,jdbcType=BIGINT},
+		   	#{ empNo,jdbcType=VARCHAR},
+		   	#{ empName,jdbcType=VARCHAR},
+		   	#{ engName,jdbcType=VARCHAR},
+		   	#{ userId,jdbcType=BIGINT},
+		   	#{ joinDate,jdbcType=TIMESTAMP},
+		   	#{ sexly,jdbcType=VARCHAR},
+		   	#{ country,jdbcType=VARCHAR},
+		   	#{ ancestral,jdbcType=VARCHAR},
+		   	#{ householdAdd,jdbcType=VARCHAR},
+		   	#{ domicile,jdbcType=VARCHAR},
+		   	#{ education,jdbcType=VARCHAR},
+		   	#{ collegeName,jdbcType=VARCHAR},
+		   	#{ idNumber,jdbcType=VARCHAR},
+		   	#{ social,jdbcType=VARCHAR},
+		   	#{ isSursance,jdbcType=VARCHAR},
+		   	#{ phone,jdbcType=VARCHAR},
+		   	#{ email,jdbcType=VARCHAR},
+		   	#{ urgentPhone,jdbcType=VARCHAR},
+		   	#{ teamId,jdbcType=VARCHAR},
+		   	#{ birthday,jdbcType=TIMESTAMP},
+		   	#{ graduationDate,jdbcType=TIMESTAMP},
+		   	#{ isParty,jdbcType=VARCHAR},
+		   	#{ isHire,jdbcType=VARCHAR},
+		   	#{ isOperating,jdbcType=TINYINT},
+		   	#{ isPerformance,jdbcType=TINYINT},
+		   	#{ isSal,jdbcType=TINYINT},
+		   	#{ isAtt,jdbcType=TINYINT},
+		   	#{ isShake,jdbcType=TINYINT},
+		   	#{ schId,jdbcType=BIGINT},
+		   	#{ performance,jdbcType=BIGINT},
+		   	#{ zc,jdbcType=VARCHAR},
+		   	#{ nation,jdbcType=VARCHAR},
+		   	#{ emotionStyle,jdbcType=VARCHAR},
+		   	#{ urgent,jdbcType=VARCHAR},
+		   	#{ census,jdbcType=VARCHAR},
+		   	#{ constellatory,jdbcType=VARCHAR},
+		   	#{ blood,jdbcType=VARCHAR},
+		   	#{ health,jdbcType=VARCHAR},
+		   	#{ performanceId,jdbcType=BIGINT},
+		   	#{ photo,jdbcType=VARCHAR},
+		   	#{ deleted,jdbcType=VARCHAR},
+		   	#{ companyId,jdbcType=BIGINT},
+		   	#{ createTime,jdbcType=TIMESTAMP},
+		   	#{ isIdCard,jdbcType=TINYINT},
+		   	#{ createBy,jdbcType=VARCHAR},
+		   	#{ modifyTime,jdbcType=TIMESTAMP},
+		   	#{ modifyBy,jdbcType=VARCHAR}
+		)
+		<selectKey databaseId="mysql" keyProperty="id" order="AFTER" resultType="long">
+			SELECT LAST_INSERT_ID() AS ID
+		</selectKey>
+		<selectKey databaseId="oracle" keyProperty="id" order="BEFORE" resultType="long">
+			SELECT SEQ_HCM.EMP_FOLDER_HCM.nextval as id FROM dual
+		</selectKey>
+	</insert>
+	
+	<!-- 更新实体Map -->
+	<update id="mapUpdate" parameterType="map">
+		UPDATE HCM.EMP_FOLDER_HCM
+		<set>
+			<if test="empNo != null">
+				EMP_NO = #{empNo,jdbcType=VARCHAR},
+			</if>
+			<if test="empName != null">
+				EMP_NAME = #{empName,jdbcType=VARCHAR},
+			</if>
+			<if test="engName != null">
+				ENG_NAME = #{engName,jdbcType=VARCHAR},
+			</if>
+			<if test="userId != null">
+				USER_ID = #{userId,jdbcType=BIGINT},
+			</if>
+			<if test="joinDate != null">
+				JOIN_DATE = #{joinDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="sexly != null">
+				SEXLY = #{sexly,jdbcType=VARCHAR},
+			</if>
+			<if test="country != null">
+				COUNTRY = #{country,jdbcType=VARCHAR},
+			</if>
+			<if test="ancestral != null">
+				ANCESTRAL = #{ancestral,jdbcType=VARCHAR},
+			</if>
+			<if test="householdAdd != null">
+				HOUSEHOLD_ADD = #{householdAdd,jdbcType=VARCHAR},
+			</if>
+			<if test="domicile != null">
+				DOMICILE = #{domicile,jdbcType=VARCHAR},
+			</if>
+			<if test="education != null">
+				EDUCATION = #{education,jdbcType=VARCHAR},
+			</if>
+			<if test="collegeName != null">
+				COLLEGE_NAME = #{collegeName,jdbcType=VARCHAR},
+			</if>
+			<if test="idNumber != null">
+				ID_NUMBER = #{idNumber,jdbcType=VARCHAR},
+			</if>
+			<if test="social != null">
+				SOCIAL = #{social,jdbcType=VARCHAR},
+			</if>
+			<if test="isSursance != null">
+				IS_SURSANCE = #{isSursance,jdbcType=VARCHAR},
+			</if>
+			<if test="phone != null">
+				PHONE = #{phone,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				EMAIL = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="urgentPhone != null">
+				URGENT_PHONE = #{urgentPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="teamId != null">
+				TEAM_ID = #{teamId,jdbcType=VARCHAR},
+			</if>
+			<if test="birthday != null">
+				BIRTHDAY = #{birthday,jdbcType=TIMESTAMP},
+			</if>
+			<if test="graduationDate != null">
+				GRADUATION_DATE = #{graduationDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="isParty != null">
+				IS_PARTY = #{isParty,jdbcType=VARCHAR},
+			</if>
+			<if test="isHire != null">
+				IS_HIRE = #{isHire,jdbcType=VARCHAR},
+			</if>
+			<if test="isOperating != null">
+				IS_OPERATING = #{isOperating,jdbcType=TINYINT},
+			</if>
+			<if test="isPerformance != null">
+				IS_PERFORMANCE = #{isPerformance,jdbcType=TINYINT},
+			</if>
+			<if test="isSal != null">
+				IS_SAL = #{isSal,jdbcType=TINYINT},
+			</if>
+			<if test="isAtt != null">
+				IS_ATT = #{isAtt,jdbcType=TINYINT},
+			</if>
+			<if test="isShake != null">
+				IS_SHAKE = #{isShake,jdbcType=TINYINT},
+			</if>
+			<if test="schId != null">
+				SCH_ID = #{schId,jdbcType=BIGINT},
+			</if>
+			<if test="performance != null">
+				PERFORMANCE = #{performance,jdbcType=BIGINT},
+			</if>
+			<if test="zc != null">
+				ZC = #{zc,jdbcType=VARCHAR},
+			</if>
+			<if test="nation != null">
+				NATION = #{nation,jdbcType=VARCHAR},
+			</if>
+			<if test="emotionStyle != null">
+				EMOTION_STYLE = #{emotionStyle,jdbcType=VARCHAR},
+			</if>
+			<if test="urgent != null">
+				URGENT = #{urgent,jdbcType=VARCHAR},
+			</if>
+			<if test="census != null">
+				CENSUS = #{census,jdbcType=VARCHAR},
+			</if>
+			<if test="constellatory != null">
+				CONSTELLATORY = #{constellatory,jdbcType=VARCHAR},
+			</if>
+			<if test="blood != null">
+				BLOOD = #{blood,jdbcType=VARCHAR},
+			</if>
+			<if test="health != null">
+				HEALTH = #{health,jdbcType=VARCHAR},
+			</if>
+			<if test="performanceId != null">
+				PERFORMANCE_ID = #{performanceId,jdbcType=BIGINT},
+			</if>
+			<if test="photo != null">
+				PHOTO = #{photo,jdbcType=VARCHAR},
+			</if>
+			<if test="deleted != null">
+				DELETED = #{deleted,jdbcType=VARCHAR},
+			</if>
+			<if test="companyId != null">
+				COMPANY_ID = #{companyId,jdbcType=BIGINT},
+			</if>
+			<if test="createTime != null">
+				CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="isIdCard != null">
+				IS_ID_CARD = #{isIdCard,jdbcType=TINYINT},
+			</if>
+			<if test="createBy != null">
+				CREATE_BY = #{createBy,jdbcType=VARCHAR},
+			</if>
+			<if test="modifyTime != null">
+				MODIFY_TIME = #{modifyTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="modifyBy != null">
+				MODIFY_BY = #{modifyBy,jdbcType=VARCHAR},
+			</if>
+		</set>
+		WHERE ID = #{id,jdbcType=INTEGER}
+	</update>
+
+</mapper>   

@@ -1,0 +1,24 @@
+{
+  "errorCode": 0,
+  "message": "操作成功",
+  "model": [{
+    "linkPhone": "13500000000",
+    "address": "河北省唐山市古冶区",
+    "companyName": "哈哈哈哈",
+    "industry": "其他,经编产业,注塑产业",
+    "authTime": "1545099284785",
+    "linkMan": "mayun55",
+    "companyId": "232601",
+    "createBy": "232526",
+    "authRemark": "",
+    "businessNo": "10086888皮皮",
+    "userCount": "8",
+    "imageUrl1": "https://www.china-cms.com/group1/M00/00/08/wKgA1lwXTN-AcqVGAAENbor8Id0184.jpg",
+    "companyNature": "个体户",
+    "entryCost": "-1",
+    "id": "1291",
+    "authType": "企业",
+    "status": "已入驻"
+  }],
+  "result": true
+}

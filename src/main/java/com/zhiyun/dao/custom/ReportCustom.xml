@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhiyun.dao.impl.ReportDaoImpl">
+
+    <select id="getTree" parameterType="com.zhiyun.entity.Report" resultType="com.zhiyun.dto.ReportDto">
+        SELECT
+        rf.ID id,
+        rf.FOLDER_ID folderId,
+        rg.is_desisn isDesisn,
+        rf.CREATE_USER_ID createUserId,
+        rf.REPORT_TYPE reportType,
+        rf.ALIAS alias
+        FROM BI_REPORT rf
+        left JOIN bi_report_grant rg on rg.folder_id = rf.id and rg.DELETED = 'F'
+        where  rf.DELETED = 'F'
+        <if test="id != null">
+            AND rf.ID = #{id,jdbcType=INTEGER}
+        </if>
+        <if test="folderId != null">
+            AND rf.FOLDER_ID = #{folderId,jdbcType=BIGINT}
+        </if>
+        <if test="companyId != null">
+            AND rf.COMPANY_ID = #{companyId,jdbcType=BIGINT}
+        </if>
+        <if test="createUserId != null">
+            and (rf.CREATE_USER_ID = #{createUserId,jdbcType=BIGINT} or rg.is_view = 1 or rg.is_desisn = 1)
+        </if>
+    </select>
+</mapper>   

@@ -1,0 +1,10 @@
+{
+  "errorCode": 0,
+  "message": "保存成功",
+  "model": {
+    "deleted": "F",
+    "findList": ["id", "companyId", "companyName", "province", "city", "address", "authTime", "status", "createTime", "createBy", "modifyTime", "modifyBy", "area", "authRemark", "industry", "companyNature", "businessNo", "linkMan", "linkPhone", "imageUrl1", "userCount", "entryCost", "authType", "remake"],
+    "id": 92
+  },
+  "result": true
+}

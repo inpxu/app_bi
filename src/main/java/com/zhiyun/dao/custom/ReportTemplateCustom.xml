@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhiyun.dao.impl.ReportTemplateDaoImpl">
+
+    <!-- 分页查询（计数） -->
+    <select id="getPage_count" parameterType="map" resultType="int">
+        SELECT count(*)
+        FROM BI_REPORT_TEMPLATE
+        where deleted = 'F'
+        <if test="entity.alias != null and entity.alias != ''">
+            AND ALIAS like CONCAT ('%', #{entity.alias,jdbcType=VARCHAR}, '%')
+        </if>
+    </select>
+
+    <!-- 分页查询（数据） -->
+    <select id="getPage_datas" parameterType="map" resultType="com.zhiyun.dto.ReportTemplateDto">
+        <include refid="mybatis.pageStartSQL" />
+        SELECT
+        ID id,
+        ALIAS alias,
+        TEMPLATE_PATH templatePath,
+        DELETED deleted,
+        CREATE_BY createBy
+        FROM BI_REPORT_TEMPLATE
+        where deleted = 'F'
+        <if test="entity.alias != null and entity.alias != ''">
+            AND ALIAS like CONCAT ('%', #{entity.alias,jdbcType=VARCHAR}, '%')
+        </if>
+        <include refid="mybatis.pageEndSQL" />
+    </select>
+</mapper>   

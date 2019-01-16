@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhiyun.dao.impl.ReportGrantDaoImpl">
+
+    <!-- 查询 -->
+    <select id="getGrant" parameterType="com.zhiyun.entity.ReportGrant" resultType="com.zhiyun.dto.ReportGrantDto">
+        SELECT
+        g.ID id,
+        g.FOLDER_ID folderId,
+        g.USER_ID userId,
+        cu.name empName,
+        co.ORG_NAME orgName,
+        g.IS_VIEW isView,
+        g.IS_DESISN isDesisn,
+        g.DELETED deleted,
+        g.CREATE_BY createBy
+        FROM BI_REPORT_GRANT g
+        LEFT JOIN auth_authorization.cas_user cu ON cu.id = g.user_id AND cu.deleted = g.deleted
+        LEFT JOIN auth_authorization.CAS_ORG co ON co.id = cu.org_id AND co.deleted = cu.deleted AND co.company_id = cu.company_id
+        <where>
+            g.DELETED = 'F'
+            <if test="id != null">
+                AND g.ID = #{id,jdbcType=INTEGER}
+            </if>
+            <if test="folderId != null">
+                AND g.FOLDER_ID = #{folderId,jdbcType=BIGINT}
+            </if>
+            <if test="userId != null and userId != ''">
+                AND g.USER_ID = #{userId,jdbcType=INTEGER}
+            </if>
+            <if test="isView != null">
+                AND g.IS_VIEW = #{isView,jdbcType=INTEGER}
+            </if>
+            <if test="isDesisn != null">
+                AND g.IS_DESISN = #{isDesisn,jdbcType=INTEGER}
+            </if>
+        </where>
+    </select>
+
+</mapper>   

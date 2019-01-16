@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhiyun.dao.impl.LayoutFolderDaoImpl">
+
+    <!-- 查询 -->
+    <select id="getFolder" parameterType="com.zhiyun.entity.LayoutFolder" resultType="com.zhiyun.dto.LayoutFolderDto">
+        SELECT
+        ID id,
+        ALIAS alias
+        FROM BI_LAYOUT_FOLDER
+        where  DELETED = 'F'
+            <if test="companyId != null">
+                AND COMPANY_ID = #{companyId,jdbcType=BIGINT}
+            </if>
+            <if test="alias != null and alias != ''">
+                AND ALIAS like CONCAT ('%', #{alias,jdbcType=VARCHAR}, '%')
+            </if>
+    </select>
+
+</mapper>   
